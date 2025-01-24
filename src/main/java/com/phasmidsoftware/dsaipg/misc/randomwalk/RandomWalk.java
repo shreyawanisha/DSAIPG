@@ -4,6 +4,8 @@
 
 package com.phasmidsoftware.dsaipg.misc.randomwalk;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Random;
 
 /**
@@ -21,7 +23,7 @@ public class RandomWalk {
      */
     public double distance() {
         // TO BE IMPLEMENTED 
-         return 0.0;
+         return Math.sqrt((long)x * x + (long)y * y);
         // END SOLUTION
     }
 
@@ -33,7 +35,9 @@ public class RandomWalk {
      */
     private void move(int dx, int dy) {
         // TO BE IMPLEMENTED  do move
-         throw new RuntimeException("Not implemented");
+        x = x + dx;
+        y = y + dy;
+//         throw new RuntimeException("Not implemented");
         // END SOLUTION
     }
 
@@ -43,8 +47,9 @@ public class RandomWalk {
      * @param m the number of steps the drunkard takes
      */
     private void randomWalk(int m) {
-        // TO BE IMPLEMENTED 
-throw new RuntimeException("implementation missing");
+        // TO BE IMPLEMENTED
+        for (int i = 0; i < m; i++) randomMove();
+//throw new RuntimeException("implementation missing");
     }
 
     /**
@@ -90,12 +95,29 @@ throw new RuntimeException("implementation missing");
      *             If args is empty, the method throws a RuntimeException indicating invalid syntax.
      */
     public static void main(String[] args) {
-        if (args.length == 0)
-            throw new RuntimeException("Syntax: RandomWalk steps [experiments]");
-        int m = Integer.parseInt(args[0]);
-        int n = 30;
-        if (args.length > 1) n = Integer.parseInt(args[1]);
-        double meanDistance = randomWalkMulti(m, n);
-        System.out.println(m + " steps: " + meanDistance + " over " + n + " experiments");
+        if (args.length > 0) {
+            int m = Integer.parseInt(args[0]);
+            int n = 30;
+            if (args.length > 1) n = Integer.parseInt(args[1]);
+            double meanDistance = randomWalkMulti(m, n);
+            System.out.println(m + " steps: " + meanDistance + " over " + n + " experiments");
+        } else {
+            // Automated experiments for predefined stepsArray
+            System.out.println("No command-line arguments provided. Running automated experiments...\n");
+            int[] stepsArray = {20, 100, 300, 700, 900, 1200, 3500, 5000, 8000, 10000};
+            int n1 = 30; // Number of experiments for predefined steps
+
+            try (FileWriter writer = new FileWriter("random_walk_results.csv")) {
+                writer.write("Steps (m),Mean Distance (d)\n");
+                for (int step : stepsArray) {
+                    double meanDistance = randomWalkMulti(step, n1);
+                    System.out.println(step + " steps: " + meanDistance + " over " + n1 + " experiments");
+                    writer.write(step + "," + meanDistance + "\n");
+                }
+                System.out.println("Results saved to random_walk_results.csv");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }
