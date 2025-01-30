@@ -5,6 +5,7 @@
 package com.phasmidsoftware.dsaipg.adt.threesum;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -49,8 +50,37 @@ public class ThreeSumQuadratic implements ThreeSum {
      */
      List<Triple> getTriples(int j) {
          List<Triple> triples = new ArrayList<>();
+         int target = -1 * a[j];
+
+         int left = j+1;
+         int right = length-1;
+         while(left < right) {
+             int sum = a[left] + a[right];
+             if(sum == target) {
+                 final Triple triple = sort(a[left], a[right], a[j]);
+                 triples.add(triple);
+                 left++;
+                 right--;
+             }
+             else if(sum > target) {
+                 right--;
+             }else {
+                 left++;
+             }
+         }
+         return triples;
         // TO BE IMPLEMENTED  : for each candidate, test if a[i] + a[j] + a[k] = 0.
-throw new RuntimeException("implementation missing");
+//        throw new RuntimeException("implementation missing");
+    }
+
+    private Triple sort(int smallest, int middle, int largest) {
+         int[] arr = new int[3];
+         arr[0] = smallest;
+         arr[1] = middle;
+         arr[2] = largest;
+
+         Arrays.sort(arr);
+         return new Triple(arr[0], arr[1], arr[2]);
     }
 
     private final int[] a;
