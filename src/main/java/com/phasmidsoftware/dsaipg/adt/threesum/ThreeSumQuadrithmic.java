@@ -9,6 +9,8 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+import static java.util.Collections.binarySearch;
+
 /**
  * Implementation of ThreeSum which follows the simple optimization of
  * requiring a sorted array, then using binary search to find an element x where
@@ -63,7 +65,27 @@ class ThreeSumQuadrithmic implements ThreeSum {
     Triple getTriple(int i, int j) {
         // TO BE IMPLEMENTED  : use binary search to find the third element
         // END SOLUTION
+
+        final int target = -1 * (a[i] + a[j]);
+        boolean isAvailable = binarySearch(a, target, j+1,  a.length-1);
+        if(isAvailable){
+            return new Triple(a[i], a[j], target);
+        }
         return null;
+    }
+
+    boolean binarySearch(int[] a, int target, int start, int end) {
+        while(start <= end){
+            int mid = (end - start)/2 + start;
+            if( a[mid] == target){
+                return true;
+            }
+            else if(a[mid] < target){
+                start = mid+1;
+            }
+            else end = mid-1;
+        }
+        return false;
     }
 
     private final int[] a;
