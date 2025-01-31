@@ -52,9 +52,17 @@ public class ThreeSumQuadratic implements ThreeSum {
          List<Triple> triples = new ArrayList<>();
          int target = -1 * a[j];
 
-         int left = j+1;
+         int left = 0;
          int right = length-1;
          while(left < right) {
+             if (left == j) {
+                 left++; // Skip the fixed middle element
+                 continue;
+             }
+             if (right == j) {
+                 right--; // Skip the fixed middle element
+                 continue;
+             }
              int sum = a[left] + a[right];
              if(sum == target) {
                  final Triple triple = sort(a[left], a[right], a[j]);
