@@ -102,8 +102,19 @@ public class ThreeSumBenchmark {
      */
     private void benchmarkThreeSum(final String description, final Consumer<int[]> function, int n, final TimeLogger[] timeLoggers) {
         if (description.equals("ThreeSumCubic") && n > 4000) return;
-        // TO BE IMPLEMENTED 
-throw new RuntimeException("implementation missing");
+
+        // Create a Benchmark_Timer to measure execution time
+        Benchmark_Timer<int[]> timer = new Benchmark_Timer<>(description, function);
+
+        // Run the benchmark and get the average time
+        double time = timer.runFromSupplier(supplier, runs);
+
+        // Log the results using the provided TimeLoggers
+        for (TimeLogger logger : timeLoggers) {
+            logger.log(description, time, n);
+        }
+        // TO BE IMPLEMENTED
+//throw new RuntimeException("implementation missing");
     }
 
     /**
