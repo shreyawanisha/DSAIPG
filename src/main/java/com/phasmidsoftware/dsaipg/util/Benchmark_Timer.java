@@ -50,6 +50,7 @@ public class Benchmark_Timer<T> implements Benchmark<T> {
      */
     public double runFromSupplier(Supplier<T> supplier, int m) {
         logger.info("Begin run: " + description + " with " + formatWhole(m) + " runs");
+        if (m == 0) return 0.0;
         final Function<T, T> function = t -> {
             fRun.accept(t);
             return t;
