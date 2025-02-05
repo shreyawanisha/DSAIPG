@@ -65,6 +65,13 @@ public class InsertionSortBasic<S> {
      * @param i    the index of the transitional element.
      */
     void insert(S[] a, int from, int i) {
+        S val = a[i];
+        int j = i - 1;
+        while (j >= from && comparator.compare(a[j], val) > 0) {
+            a[j + 1] = a[j];
+            j--;
+        }
+        a[j + 1] = val;
         // TO BE IMPLEMENTED  : implement inner loop of insertion sort using comparator
         // END SOLUTION
     }

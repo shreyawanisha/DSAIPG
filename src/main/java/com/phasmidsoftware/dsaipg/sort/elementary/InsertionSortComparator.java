@@ -65,7 +65,7 @@ public class InsertionSortComparator<X> extends SortWithHelper<X> {
     // 1 2 3 1 5 6 7
     // 1 2 3 1
     public void sort(X[] xs, int from, int to) {
-        for(int i=from;i<to;i++){
+        for(int i=from+1;i<to;i++){
             sortHelper(xs, i, from);
         }
         // TO BE IMPLEMENTED
