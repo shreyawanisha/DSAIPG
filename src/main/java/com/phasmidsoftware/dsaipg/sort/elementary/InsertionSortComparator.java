@@ -62,11 +62,33 @@ public class InsertionSortComparator<X> extends SortWithHelper<X> {
      * @param from the index of the first element to sort
      * @param to   the index of the first element not to sort
      */
+    // 1 2 3 1 5 6 7
+    // 1 2 3 1
     public void sort(X[] xs, int from, int to) {
-        final Helper<X> helper = getHelper();
+        for(int i=from;i<to;i++){
+            sortHelper(xs, i, from);
+        }
+        // TO BE IMPLEMENTED
+    }
 
-        // TO BE IMPLEMENTED 
-throw new RuntimeException("implementation missing");
+    private void sortHelper(X[] xs, int j, int from) {
+        final Helper<X> helper = getHelper();
+        Comparator<X> comparator = helper.getComparator();
+        X val = xs[j];
+        int i=j-1;
+        while(i>=from && comparator.compare(xs[i], val) > 0){
+            if(helper.instrumented()){
+                // If helper is instrumented, we need to swap the elements and check if the swap is stable.
+                 if(!helper.swapStableConditional(xs, i + 1)){
+                     break;
+                 }
+            }
+            else {
+                xs[i + 1] = xs[i];
+            }
+            i--;
+        }
+        xs[i+1] = val;
     }
 
     public static final String DESCRIPTION = "Insertion sort";
