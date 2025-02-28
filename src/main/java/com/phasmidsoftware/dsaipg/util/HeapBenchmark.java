@@ -9,25 +9,37 @@ import java.util.function.Supplier;
 
 @SuppressWarnings("unchecked")
 public class HeapBenchmark {
-    private static final int M = 4095;
-    private static final int INSERTIONS = 16000;
-    private static final int REMOVALS = 4000;
-    private static final Map<String, Double> benchmarkResults = new HashMap<>();
+    private static final int[] M_VALUES = {4095, 8191, 16383, 32767}; // Different heap sizes
+    private static final Map<String, List<Double>> benchmarkResults = new HashMap<>();
 
     public static void main(String[] args) {
-        benchmark("Binary Heap", () -> new PriorityQueue<Integer>(INSERTIONS, false, Comparator.naturalOrder(), false));
-        benchmark("Binary Heap with Floyd's Trick", () -> new PriorityQueue<Integer>(INSERTIONS, false, Comparator.naturalOrder(), true));
-        benchmark("4-ary Heap", () -> new FourAryHeap<Integer>(INSERTIONS, false, Comparator.naturalOrder()));
-        benchmark("4-ary Heap with Floyd's Trick", () -> new FourAryHeap<>(generateRandomArray(INSERTIONS), false, Comparator.naturalOrder()));
-        benchmark("Fibonacci Heap", () -> new FibonacciHeap<Integer>(Comparator.naturalOrder()));
+        for (int M : M_VALUES) {
+            int insertions = M * 4; // Maintain insert/remove ratio
+            int removals = insertions / 4;
+
+            System.out.println("\n=== Benchmarking for M = " + M + " ===");
+
+            benchmark("Binary Heap", M, insertions, removals,
+                    () -> new PriorityQueue<Integer>(insertions, false, Comparator.naturalOrder(), false));
+            benchmark("Binary Heap with Floyd's Trick", M, insertions, removals,
+                    () -> new PriorityQueue<Integer>(insertions, false, Comparator.naturalOrder(), true));
+            benchmark("4-ary Heap", M, insertions, removals,
+                    () -> new FourAryHeap<Integer>(insertions, false, Comparator.naturalOrder()));
+            benchmark("4-ary Heap with Floyd's Trick", M, insertions, removals,
+                    () -> new FourAryHeap<>(generateRandomArray(insertions), false, Comparator.naturalOrder()));
+            benchmark("Fibonacci Heap", M, insertions, removals,
+                    () -> new FibonacciHeap<Integer>(Comparator.naturalOrder()));
+        }
+
         generateLogLogPlot();
     }
 
-    private static <T> void benchmark(String name, Supplier<T> heapSupplier) {
+    private static <T> void benchmark(String name, int M, int insertions, int removals, Supplier<T> heapSupplier) {
         Benchmark_Timer<T> timer = new Benchmark_Timer<>(name, heap -> {
             Random rand = new Random();
             Integer maxSpilled = null;
-            for (int i = 0; i < INSERTIONS; i++) {
+
+            for (int i = 0; i < insertions; i++) {
                 int num = rand.nextInt(100000);
                 if (heap instanceof PriorityQueue) ((PriorityQueue<Integer>) heap).give(num);
                 else if (heap instanceof FourAryHeap) ((FourAryHeap<Integer>) heap).give(num);
@@ -50,7 +62,7 @@ public class HeapBenchmark {
                 }
             }
 
-            for (int i = 0; i < REMOVALS; i++) {
+            for (int i = 0; i < removals; i++) {
                 if (heap instanceof PriorityQueue) {
                     try {
                         ((PriorityQueue<Integer>) heap).take();
@@ -61,12 +73,13 @@ public class HeapBenchmark {
                 else if (heap instanceof FourAryHeap) ((FourAryHeap<Integer>) heap).take();
                 else if (heap instanceof FibonacciHeap) ((FibonacciHeap<Integer>) heap).extractMin();
             }
-            System.out.println(name + " - Highest priority spilled element: " + maxSpilled);
+
+            System.out.println(name + " (M = " + M + ") - Highest priority spilled element: " + maxSpilled);
         });
 
         double time = timer.runFromSupplier(heapSupplier, 10);
-        benchmarkResults.put(name, time);
-        System.out.println(name + " execution time: " + time + " ms");
+        benchmarkResults.computeIfAbsent(name, k -> new ArrayList<>()).add(time);
+        System.out.println(name + " (M = " + M + ") execution time: " + time + " ms");
     }
 
     private static Integer[] generateRandomArray(int size) {
@@ -79,15 +92,15 @@ public class HeapBenchmark {
     }
 
     private static void generateLogLogPlot() {
-        List<Double> xValues = new ArrayList<>(); // Log(N)
-        List<Double> yValues = new ArrayList<>(); // Log(time)
-        for (Map.Entry<String, Double> entry : benchmarkResults.entrySet()) {
-            xValues.add(Math.log(INSERTIONS));
-            yValues.add(Math.log(entry.getValue()));
-        }
-        System.out.println("Log-Log Plot Data:");
-        for (int i = 0; i < xValues.size(); i++) {
-            System.out.println("( " + xValues.get(i) + " , " + yValues.get(i) + " )");
+        System.out.println("\nLog-Log Plot Data:");
+        for (Map.Entry<String, List<Double>> entry : benchmarkResults.entrySet()) {
+            String name = entry.getKey();
+            List<Double> times = entry.getValue();
+            for (int i = 0; i < M_VALUES.length; i++) {
+                double logN = Math.log(M_VALUES[i] * 4); // Log of number of insertions
+                double logTime = Math.log(times.get(i));
+                System.out.println(name + ": ( " + logN + " , " + logTime + " )");
+            }
         }
     }
 }
