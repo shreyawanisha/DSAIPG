@@ -1,0 +1,291 @@
+=== Benchmarking for M = 4095 ===
+2025-02-27 22:43:14.038 INFO  Benchmark_Timer - Begin run: Binary Heap with 10 runs
+Binary Heap (M = 4095) - Highest priority spilled element: 75399
+Binary Heap (M = 4095) - Highest priority spilled element: 75180
+Binary Heap (M = 4095) - Highest priority spilled element: 75185
+Binary Heap (M = 4095) - Highest priority spilled element: 74636
+Binary Heap (M = 4095) - Highest priority spilled element: 74320
+Binary Heap (M = 4095) - Highest priority spilled element: 75088
+Binary Heap (M = 4095) - Highest priority spilled element: 75138
+Binary Heap (M = 4095) - Highest priority spilled element: 74594
+Binary Heap (M = 4095) - Highest priority spilled element: 75255
+Binary Heap (M = 4095) - Highest priority spilled element: 74980
+Binary Heap (M = 4095) - Highest priority spilled element: 75275
+Binary Heap (M = 4095) execution time: 4.863324999999999 ms
+2025-02-27 22:43:14.123 INFO  Benchmark_Timer - Begin run: Binary Heap with Floyd's Trick with 10 runs
+Binary Heap with Floyd's Trick (M = 4095) - Highest priority spilled element: 74683
+Binary Heap with Floyd's Trick (M = 4095) - Highest priority spilled element: 75278
+Binary Heap with Floyd's Trick (M = 4095) - Highest priority spilled element: 74978
+Binary Heap with Floyd's Trick (M = 4095) - Highest priority spilled element: 75333
+Binary Heap with Floyd's Trick (M = 4095) - Highest priority spilled element: 75285
+Binary Heap with Floyd's Trick (M = 4095) - Highest priority spilled element: 75430
+Binary Heap with Floyd's Trick (M = 4095) - Highest priority spilled element: 75046
+Binary Heap with Floyd's Trick (M = 4095) - Highest priority spilled element: 75141
+Binary Heap with Floyd's Trick (M = 4095) - Highest priority spilled element: 75069
+Binary Heap with Floyd's Trick (M = 4095) - Highest priority spilled element: 74944
+Binary Heap with Floyd's Trick (M = 4095) - Highest priority spilled element: 75606
+Binary Heap with Floyd's Trick (M = 4095) execution time: 4.8805376 ms
+2025-02-27 22:43:14.191 INFO  Benchmark_Timer - Begin run: 4-ary Heap with 10 runs
+4-ary Heap (M = 4095) - Highest priority spilled element: 74524
+4-ary Heap (M = 4095) - Highest priority spilled element: 74748
+4-ary Heap (M = 4095) - Highest priority spilled element: 74906
+4-ary Heap (M = 4095) - Highest priority spilled element: 75226
+4-ary Heap (M = 4095) - Highest priority spilled element: 75195
+4-ary Heap (M = 4095) - Highest priority spilled element: 74107
+4-ary Heap (M = 4095) - Highest priority spilled element: 75254
+4-ary Heap (M = 4095) - Highest priority spilled element: 75067
+4-ary Heap (M = 4095) - Highest priority spilled element: 75115
+4-ary Heap (M = 4095) - Highest priority spilled element: 74715
+4-ary Heap (M = 4095) - Highest priority spilled element: 74658
+4-ary Heap (M = 4095) execution time: 6.850016800000001 ms
+2025-02-27 22:43:14.269 INFO  Benchmark_Timer - Begin run: 4-ary Heap with Floyd's Trick with 10 runs
+4-ary Heap with Floyd's Trick (M = 4095) - Highest priority spilled element: 50331
+4-ary Heap with Floyd's Trick (M = 4095) - Highest priority spilled element: 50002
+4-ary Heap with Floyd's Trick (M = 4095) - Highest priority spilled element: 50518
+4-ary Heap with Floyd's Trick (M = 4095) - Highest priority spilled element: 49822
+4-ary Heap with Floyd's Trick (M = 4095) - Highest priority spilled element: 49959
+4-ary Heap with Floyd's Trick (M = 4095) - Highest priority spilled element: 50190
+4-ary Heap with Floyd's Trick (M = 4095) - Highest priority spilled element: 49923
+4-ary Heap with Floyd's Trick (M = 4095) - Highest priority spilled element: 50005
+4-ary Heap with Floyd's Trick (M = 4095) - Highest priority spilled element: 50014
+4-ary Heap with Floyd's Trick (M = 4095) - Highest priority spilled element: 49865
+4-ary Heap with Floyd's Trick (M = 4095) - Highest priority spilled element: 50164
+4-ary Heap with Floyd's Trick (M = 4095) execution time: 7.1472583 ms
+2025-02-27 22:43:14.388 INFO  Benchmark_Timer - Begin run: Fibonacci Heap with 10 runs
+Fibonacci Heap (M = 4095) - Highest priority spilled element: 75177
+Fibonacci Heap (M = 4095) - Highest priority spilled element: 74924
+Fibonacci Heap (M = 4095) - Highest priority spilled element: 75196
+Fibonacci Heap (M = 4095) - Highest priority spilled element: 75064
+Fibonacci Heap (M = 4095) - Highest priority spilled element: 75751
+Fibonacci Heap (M = 4095) - Highest priority spilled element: 75230
+Fibonacci Heap (M = 4095) - Highest priority spilled element: 74802
+Fibonacci Heap (M = 4095) - Highest priority spilled element: 75300
+Fibonacci Heap (M = 4095) - Highest priority spilled element: 74588
+Fibonacci Heap (M = 4095) - Highest priority spilled element: 75705
+Fibonacci Heap (M = 4095) - Highest priority spilled element: 74740
+Fibonacci Heap (M = 4095) execution time: 19.445908199999998 ms
+
+=== Benchmarking for M = 8191 ===
+2025-02-27 22:43:14.614 INFO  Benchmark_Timer - Begin run: Binary Heap with 10 runs
+Binary Heap (M = 8191) - Highest priority spilled element: 74924
+Binary Heap (M = 8191) - Highest priority spilled element: 75300
+Binary Heap (M = 8191) - Highest priority spilled element: 74814
+Binary Heap (M = 8191) - Highest priority spilled element: 75100
+Binary Heap (M = 8191) - Highest priority spilled element: 75098
+Binary Heap (M = 8191) - Highest priority spilled element: 75344
+Binary Heap (M = 8191) - Highest priority spilled element: 75058
+Binary Heap (M = 8191) - Highest priority spilled element: 74568
+Binary Heap (M = 8191) - Highest priority spilled element: 75294
+Binary Heap (M = 8191) - Highest priority spilled element: 75161
+Binary Heap (M = 8191) - Highest priority spilled element: 75152
+Binary Heap (M = 8191) execution time: 5.5964084000000005 ms
+2025-02-27 22:43:14.677 INFO  Benchmark_Timer - Begin run: Binary Heap with Floyd's Trick with 10 runs
+Binary Heap with Floyd's Trick (M = 8191) - Highest priority spilled element: 74999
+Binary Heap with Floyd's Trick (M = 8191) - Highest priority spilled element: 75370
+Binary Heap with Floyd's Trick (M = 8191) - Highest priority spilled element: 74547
+Binary Heap with Floyd's Trick (M = 8191) - Highest priority spilled element: 74671
+Binary Heap with Floyd's Trick (M = 8191) - Highest priority spilled element: 74967
+Binary Heap with Floyd's Trick (M = 8191) - Highest priority spilled element: 74421
+Binary Heap with Floyd's Trick (M = 8191) - Highest priority spilled element: 74970
+Binary Heap with Floyd's Trick (M = 8191) - Highest priority spilled element: 74969
+Binary Heap with Floyd's Trick (M = 8191) - Highest priority spilled element: 75236
+Binary Heap with Floyd's Trick (M = 8191) - Highest priority spilled element: 74850
+Binary Heap with Floyd's Trick (M = 8191) - Highest priority spilled element: 74808
+Binary Heap with Floyd's Trick (M = 8191) execution time: 5.9599459 ms
+2025-02-27 22:43:14.743 INFO  Benchmark_Timer - Begin run: 4-ary Heap with 10 runs
+4-ary Heap (M = 8191) - Highest priority spilled element: 75480
+4-ary Heap (M = 8191) - Highest priority spilled element: 75035
+4-ary Heap (M = 8191) - Highest priority spilled element: 75236
+4-ary Heap (M = 8191) - Highest priority spilled element: 74923
+4-ary Heap (M = 8191) - Highest priority spilled element: 74949
+4-ary Heap (M = 8191) - Highest priority spilled element: 75060
+4-ary Heap (M = 8191) - Highest priority spilled element: 74904
+4-ary Heap (M = 8191) - Highest priority spilled element: 74725
+4-ary Heap (M = 8191) - Highest priority spilled element: 74461
+4-ary Heap (M = 8191) - Highest priority spilled element: 74697
+4-ary Heap (M = 8191) - Highest priority spilled element: 75062
+4-ary Heap (M = 8191) execution time: 4.882408600000001 ms
+2025-02-27 22:43:14.797 INFO  Benchmark_Timer - Begin run: 4-ary Heap with Floyd's Trick with 10 runs
+4-ary Heap with Floyd's Trick (M = 8191) - Highest priority spilled element: 49773
+4-ary Heap with Floyd's Trick (M = 8191) - Highest priority spilled element: 50453
+4-ary Heap with Floyd's Trick (M = 8191) - Highest priority spilled element: 49991
+4-ary Heap with Floyd's Trick (M = 8191) - Highest priority spilled element: 50290
+4-ary Heap with Floyd's Trick (M = 8191) - Highest priority spilled element: 49683
+4-ary Heap with Floyd's Trick (M = 8191) - Highest priority spilled element: 50252
+4-ary Heap with Floyd's Trick (M = 8191) - Highest priority spilled element: 50337
+4-ary Heap with Floyd's Trick (M = 8191) - Highest priority spilled element: 49705
+4-ary Heap with Floyd's Trick (M = 8191) - Highest priority spilled element: 49971
+4-ary Heap with Floyd's Trick (M = 8191) - Highest priority spilled element: 50043
+4-ary Heap with Floyd's Trick (M = 8191) - Highest priority spilled element: 49980
+4-ary Heap with Floyd's Trick (M = 8191) execution time: 7.8328790999999995 ms
+2025-02-27 22:43:14.891 INFO  Benchmark_Timer - Begin run: Fibonacci Heap with 10 runs
+Fibonacci Heap (M = 8191) - Highest priority spilled element: 74863
+Fibonacci Heap (M = 8191) - Highest priority spilled element: 74527
+Fibonacci Heap (M = 8191) - Highest priority spilled element: 75051
+Fibonacci Heap (M = 8191) - Highest priority spilled element: 75311
+Fibonacci Heap (M = 8191) - Highest priority spilled element: 74879
+Fibonacci Heap (M = 8191) - Highest priority spilled element: 75157
+Fibonacci Heap (M = 8191) - Highest priority spilled element: 74539
+Fibonacci Heap (M = 8191) - Highest priority spilled element: 74610
+Fibonacci Heap (M = 8191) - Highest priority spilled element: 74856
+Fibonacci Heap (M = 8191) - Highest priority spilled element: 74927
+Fibonacci Heap (M = 8191) - Highest priority spilled element: 75364
+Fibonacci Heap (M = 8191) execution time: 22.958312600000003 ms
+
+=== Benchmarking for M = 16383 ===
+2025-02-27 22:43:15.140 INFO  Benchmark_Timer - Begin run: Binary Heap with 10 runs
+Binary Heap (M = 16383) - Highest priority spilled element: 74767
+Binary Heap (M = 16383) - Highest priority spilled element: 74926
+Binary Heap (M = 16383) - Highest priority spilled element: 74848
+Binary Heap (M = 16383) - Highest priority spilled element: 74901
+Binary Heap (M = 16383) - Highest priority spilled element: 75044
+Binary Heap (M = 16383) - Highest priority spilled element: 74903
+Binary Heap (M = 16383) - Highest priority spilled element: 75229
+Binary Heap (M = 16383) - Highest priority spilled element: 75238
+Binary Heap (M = 16383) - Highest priority spilled element: 74873
+Binary Heap (M = 16383) - Highest priority spilled element: 74840
+Binary Heap (M = 16383) - Highest priority spilled element: 75122
+Binary Heap (M = 16383) execution time: 13.023420699999999 ms
+2025-02-27 22:43:15.286 INFO  Benchmark_Timer - Begin run: Binary Heap with Floyd's Trick with 10 runs
+Binary Heap with Floyd's Trick (M = 16383) - Highest priority spilled element: 75075
+Binary Heap with Floyd's Trick (M = 16383) - Highest priority spilled element: 75008
+Binary Heap with Floyd's Trick (M = 16383) - Highest priority spilled element: 74999
+Binary Heap with Floyd's Trick (M = 16383) - Highest priority spilled element: 75089
+Binary Heap with Floyd's Trick (M = 16383) - Highest priority spilled element: 74996
+Binary Heap with Floyd's Trick (M = 16383) - Highest priority spilled element: 74820
+Binary Heap with Floyd's Trick (M = 16383) - Highest priority spilled element: 75260
+Binary Heap with Floyd's Trick (M = 16383) - Highest priority spilled element: 74965
+Binary Heap with Floyd's Trick (M = 16383) - Highest priority spilled element: 75028
+Binary Heap with Floyd's Trick (M = 16383) - Highest priority spilled element: 75292
+Binary Heap with Floyd's Trick (M = 16383) - Highest priority spilled element: 74810
+Binary Heap with Floyd's Trick (M = 16383) execution time: 12.628145800000002 ms
+2025-02-27 22:43:15.425 INFO  Benchmark_Timer - Begin run: 4-ary Heap with 10 runs
+4-ary Heap (M = 16383) - Highest priority spilled element: 74832
+4-ary Heap (M = 16383) - Highest priority spilled element: 74818
+4-ary Heap (M = 16383) - Highest priority spilled element: 74999
+4-ary Heap (M = 16383) - Highest priority spilled element: 75056
+4-ary Heap (M = 16383) - Highest priority spilled element: 74981
+4-ary Heap (M = 16383) - Highest priority spilled element: 75255
+4-ary Heap (M = 16383) - Highest priority spilled element: 74983
+4-ary Heap (M = 16383) - Highest priority spilled element: 74790
+4-ary Heap (M = 16383) - Highest priority spilled element: 74991
+4-ary Heap (M = 16383) - Highest priority spilled element: 74855
+4-ary Heap (M = 16383) - Highest priority spilled element: 75026
+4-ary Heap (M = 16383) execution time: 10.3686791 ms
+2025-02-27 22:43:15.541 INFO  Benchmark_Timer - Begin run: 4-ary Heap with Floyd's Trick with 10 runs
+4-ary Heap with Floyd's Trick (M = 16383) - Highest priority spilled element: 49630
+4-ary Heap with Floyd's Trick (M = 16383) - Highest priority spilled element: 49878
+4-ary Heap with Floyd's Trick (M = 16383) - Highest priority spilled element: 49935
+4-ary Heap with Floyd's Trick (M = 16383) - Highest priority spilled element: 49906
+4-ary Heap with Floyd's Trick (M = 16383) - Highest priority spilled element: 49911
+4-ary Heap with Floyd's Trick (M = 16383) - Highest priority spilled element: 50054
+4-ary Heap with Floyd's Trick (M = 16383) - Highest priority spilled element: 49867
+4-ary Heap with Floyd's Trick (M = 16383) - Highest priority spilled element: 50175
+4-ary Heap with Floyd's Trick (M = 16383) - Highest priority spilled element: 50123
+4-ary Heap with Floyd's Trick (M = 16383) - Highest priority spilled element: 50170
+4-ary Heap with Floyd's Trick (M = 16383) - Highest priority spilled element: 49971
+4-ary Heap with Floyd's Trick (M = 16383) execution time: 17.034133399999998 ms
+2025-02-27 22:43:15.740 INFO  Benchmark_Timer - Begin run: Fibonacci Heap with 10 runs
+Fibonacci Heap (M = 16383) - Highest priority spilled element: 75135
+Fibonacci Heap (M = 16383) - Highest priority spilled element: 74914
+Fibonacci Heap (M = 16383) - Highest priority spilled element: 75078
+Fibonacci Heap (M = 16383) - Highest priority spilled element: 75004
+Fibonacci Heap (M = 16383) - Highest priority spilled element: 75022
+Fibonacci Heap (M = 16383) - Highest priority spilled element: 74607
+Fibonacci Heap (M = 16383) - Highest priority spilled element: 75200
+Fibonacci Heap (M = 16383) - Highest priority spilled element: 75096
+Fibonacci Heap (M = 16383) - Highest priority spilled element: 75139
+Fibonacci Heap (M = 16383) - Highest priority spilled element: 74865
+Fibonacci Heap (M = 16383) - Highest priority spilled element: 74932
+Fibonacci Heap (M = 16383) execution time: 45.2074916 ms
+
+=== Benchmarking for M = 32767 ===
+2025-02-27 22:43:16.241 INFO  Benchmark_Timer - Begin run: Binary Heap with 10 runs
+Binary Heap (M = 32767) - Highest priority spilled element: 74972
+Binary Heap (M = 32767) - Highest priority spilled element: 75062
+Binary Heap (M = 32767) - Highest priority spilled element: 75046
+Binary Heap (M = 32767) - Highest priority spilled element: 74868
+Binary Heap (M = 32767) - Highest priority spilled element: 75101
+Binary Heap (M = 32767) - Highest priority spilled element: 75203
+Binary Heap (M = 32767) - Highest priority spilled element: 75095
+Binary Heap (M = 32767) - Highest priority spilled element: 74872
+Binary Heap (M = 32767) - Highest priority spilled element: 74728
+Binary Heap (M = 32767) - Highest priority spilled element: 74775
+Binary Heap (M = 32767) - Highest priority spilled element: 75079
+Binary Heap (M = 32767) execution time: 24.980533199999996 ms
+2025-02-27 22:43:16.517 INFO  Benchmark_Timer - Begin run: Binary Heap with Floyd's Trick with 10 runs
+Binary Heap with Floyd's Trick (M = 32767) - Highest priority spilled element: 75051
+Binary Heap with Floyd's Trick (M = 32767) - Highest priority spilled element: 74781
+Binary Heap with Floyd's Trick (M = 32767) - Highest priority spilled element: 75190
+Binary Heap with Floyd's Trick (M = 32767) - Highest priority spilled element: 74988
+Binary Heap with Floyd's Trick (M = 32767) - Highest priority spilled element: 75040
+Binary Heap with Floyd's Trick (M = 32767) - Highest priority spilled element: 75103
+Binary Heap with Floyd's Trick (M = 32767) - Highest priority spilled element: 74895
+Binary Heap with Floyd's Trick (M = 32767) - Highest priority spilled element: 75063
+Binary Heap with Floyd's Trick (M = 32767) - Highest priority spilled element: 75056
+Binary Heap with Floyd's Trick (M = 32767) - Highest priority spilled element: 74902
+Binary Heap with Floyd's Trick (M = 32767) - Highest priority spilled element: 74999
+Binary Heap with Floyd's Trick (M = 32767) execution time: 32.8611125 ms
+2025-02-27 22:43:16.874 INFO  Benchmark_Timer - Begin run: 4-ary Heap with 10 runs
+4-ary Heap (M = 32767) - Highest priority spilled element: 75091
+4-ary Heap (M = 32767) - Highest priority spilled element: 75013
+4-ary Heap (M = 32767) - Highest priority spilled element: 74877
+4-ary Heap (M = 32767) - Highest priority spilled element: 74879
+4-ary Heap (M = 32767) - Highest priority spilled element: 74998
+4-ary Heap (M = 32767) - Highest priority spilled element: 74971
+4-ary Heap (M = 32767) - Highest priority spilled element: 74760
+4-ary Heap (M = 32767) - Highest priority spilled element: 74992
+4-ary Heap (M = 32767) - Highest priority spilled element: 74865
+4-ary Heap (M = 32767) - Highest priority spilled element: 74827
+4-ary Heap (M = 32767) - Highest priority spilled element: 74975
+4-ary Heap (M = 32767) execution time: 22.4750622 ms
+2025-02-27 22:43:17.123 INFO  Benchmark_Timer - Begin run: 4-ary Heap with Floyd's Trick with 10 runs
+4-ary Heap with Floyd's Trick (M = 32767) - Highest priority spilled element: 50255
+4-ary Heap with Floyd's Trick (M = 32767) - Highest priority spilled element: 50033
+4-ary Heap with Floyd's Trick (M = 32767) - Highest priority spilled element: 50078
+4-ary Heap with Floyd's Trick (M = 32767) - Highest priority spilled element: 50061
+4-ary Heap with Floyd's Trick (M = 32767) - Highest priority spilled element: 50089
+4-ary Heap with Floyd's Trick (M = 32767) - Highest priority spilled element: 49887
+4-ary Heap with Floyd's Trick (M = 32767) - Highest priority spilled element: 50041
+4-ary Heap with Floyd's Trick (M = 32767) - Highest priority spilled element: 49969
+4-ary Heap with Floyd's Trick (M = 32767) - Highest priority spilled element: 49993
+4-ary Heap with Floyd's Trick (M = 32767) - Highest priority spilled element: 50142
+4-ary Heap with Floyd's Trick (M = 32767) - Highest priority spilled element: 50006
+4-ary Heap with Floyd's Trick (M = 32767) execution time: 38.8392958 ms
+2025-02-27 22:43:17.723 INFO  Benchmark_Timer - Begin run: Fibonacci Heap with 10 runs
+Fibonacci Heap (M = 32767) - Highest priority spilled element: 74970
+Fibonacci Heap (M = 32767) - Highest priority spilled element: 74951
+Fibonacci Heap (M = 32767) - Highest priority spilled element: 74962
+Fibonacci Heap (M = 32767) - Highest priority spilled element: 74950
+Fibonacci Heap (M = 32767) - Highest priority spilled element: 74768
+Fibonacci Heap (M = 32767) - Highest priority spilled element: 74932
+Fibonacci Heap (M = 32767) - Highest priority spilled element: 75099
+Fibonacci Heap (M = 32767) - Highest priority spilled element: 75152
+Fibonacci Heap (M = 32767) - Highest priority spilled element: 74867
+Fibonacci Heap (M = 32767) - Highest priority spilled element: 74947
+Fibonacci Heap (M = 32767) - Highest priority spilled element: 75057
+Fibonacci Heap (M = 32767) execution time: 95.72239590000001 ms
+
+Log-Log Plot Data:
+4-ary Heap with Floyd's Trick: ( 9.70381635740706 , 1.966728828622968 )
+4-ary Heap with Floyd's Trick: ( 10.397085630635493 , 2.058330143566636 )
+4-ary Heap with Floyd's Trick: ( 11.090293851940155 , 2.8352191780842553 )
+4-ary Heap with Floyd's Trick: ( 11.783471551475275 , 3.6594325124657625 )
+4-ary Heap: ( 9.70381635740706 , 1.924251104825871 )
+4-ary Heap: ( 10.397085630635493 , 1.5856386636754025 )
+4-ary Heap: ( 11.090293851940155 , 2.33878963707911 )
+4-ary Heap: ( 11.783471551475275 , 3.1124063478733204 )
+Binary Heap with Floyd's Trick: ( 9.70381635740706 , 1.5852553777318814 )
+Binary Heap with Floyd's Trick: ( 10.397085630635493 , 1.7850614038548525 )
+Binary Heap with Floyd's Trick: ( 11.090293851940155 , 2.5359281164003953 )
+Binary Heap with Floyd's Trick: ( 11.783471551475275 , 3.492289967787703 )
+Binary Heap: ( 9.70381635740706 , 1.5817223603627173 )
+Binary Heap: ( 10.397085630635493 , 1.7221250348407735 )
+Binary Heap: ( 11.090293851940155 , 2.566749328848341 )
+Binary Heap: ( 11.783471551475275 , 3.2180968495456894 )
+Fibonacci Heap: ( 9.70381635740706 , 2.9676366726111265 )
+Fibonacci Heap: ( 10.397085630635493 , 3.133680075719262 )
+Fibonacci Heap: ( 11.090293851940155 , 3.811262816467104 )
+Fibonacci Heap: ( 11.783471551475275 , 4.561452293023619 )
+
+Process finished with exit code 0
