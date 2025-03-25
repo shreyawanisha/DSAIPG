@@ -72,13 +72,60 @@ public class MergeSort<X extends Comparable<X>> extends SortWithComparableHelper
         Config config = helper.getConfig();
         boolean insurance = config.getBoolean(MERGESORT, INSURANCE);
         boolean noCopy = config.getBoolean(MERGESORT, NOCOPY);
-        if (to <= from + helper.cutoff()) { // XXX check that a cutoff value of 1 effectively stops the cutoff mechanism.
+
+        // Base case: use insertion sort on small subarrays.
+        if (to - from <= helper.cutoff()) {
             insertionSort.sort(a, from, to);
             return;
         }
 
-        // TO BE IMPLEMENTED  : implement merge sort with insurance and no-copy optimizations
-throw new RuntimeException("implementation missing");
+        int mid = from + (to - from) / 2;
+
+        if (noCopy) {
+            // ----- FLIPPING VARIANT (no extra copy at every merge) -----
+            // Note: In the flipping variant the roles of the two arrays are reversed at each level.
+            // Start by recursing with swapped arrays.
+            sort(aux, a, from, mid);
+            sort(aux, a, mid, to);
+
+            // Insurance optimization: if the two halves are already in order, simply copy
+            if (insurance && !helper.less(a[mid], a[mid - 1])) {
+                for (int i = from; i < to; i++) {
+                    helper.copy(a[i], aux, i);
+                }
+                // No merge is needed.
+                return;
+            }
+            // Merge sorted halves from 'a' into 'aux'.
+            merge(a, aux, from, mid, to);
+
+            // At the top level we require the final sorted result to reside in array 'a'.
+            // (For an odd number of levels the result is left in 'aux'.)
+            if (from == 0 && to == a.length) {
+                for (int i = from; i < to; i++) {
+                    helper.copy(aux[i], a, i);
+                }
+            }
+
+        } else {
+            // ----- NON-FLIPPING VARIANT (extra copy after each merge) -----
+            // Recurse in the same direction: sort 'a' (using aux as temporary space).
+            sort(a, aux, from, mid);
+            sort(a, aux, mid, to);
+
+            // Insurance optimization: if already in order, skip the merge.
+            if (insurance && !helper.less(a[mid], a[mid - 1])) {
+                return;
+            }
+
+            // Merge sorted halves from 'a' into 'aux'.
+            merge(a, aux, from, mid, to);
+
+            // Copy the merged result back from aux into a.
+            for (int i = from; i < to; i++) {
+                helper.copy(aux[i], a, i);
+            }
+        }
     }
 
     // CONSIDER combine with MergeSortBasic, perhaps.
