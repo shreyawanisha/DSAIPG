@@ -10,8 +10,13 @@ import com.phasmidsoftware.dsaipg.projects.mcts.core.State;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Optional;
+import java.util.Random;
 
 public class TicTacToeNode implements Node<TicTacToe> {
+    private final Random random = new Random();
+    private Node<TicTacToe> parent;
+    private double wins;
+    private int playouts;
 
     /**
      * @return true if this node is a leaf node (in which case no further exploration is possible).
@@ -51,7 +56,12 @@ public class TicTacToeNode implements Node<TicTacToe> {
      * @param state the State for the new chile.
      */
     public void addChild(State<TicTacToe> state) {
-        children.add(new TicTacToeNode(state));
+        if(state == null) {
+            throw new IllegalArgumentException("empty state added");
+        }
+        TicTacToeNode child = new TicTacToeNode(state);
+        child.setParent(this);  // Set the parent of the child
+        children.add(child);
     }
 
     /**
@@ -69,8 +79,12 @@ public class TicTacToeNode implements Node<TicTacToe> {
     /**
      * @return the score for this Node and its descendents a win is worth 2 points, a draw is worth 1 point.
      */
-    public int wins() {
+    public double wins() {
         return wins;
+    }
+
+    public void setWins(double wins) {
+        this.wins = wins;
     }
 
     /**
@@ -80,26 +94,43 @@ public class TicTacToeNode implements Node<TicTacToe> {
         return playouts;
     }
 
+    public void setPlayouts(int playout) {
+        this.playouts = playout;
+    }
+
+    // Implement parent methods
+    public Node<TicTacToe> getParent() {
+        return parent;
+    }
+
+    public void setParent(Node<TicTacToe> parent) {
+        this.parent = parent;
+    }
+
     public TicTacToeNode(State<TicTacToe> state) {
         this.state = state;
-        children = new ArrayList<>();
+        this.children = new ArrayList<>();
+        this.parent = null;
         initializeNodeData();
     }
 
-    private void initializeNodeData() {
-        if (isLeaf()) {
-            playouts = 1;
-            Optional<Integer> winner = state.winner();
-            if (winner.isPresent())
-                wins = 2; // CONSIDER check that the winner is the correct player. We shouldn't need to.
-            else
-                wins = 1; // a draw.
+private void initializeNodeData() {
+    if (isLeaf()) {
+        // For a terminal node:
+        this.playouts = 1;
+        // If there is a winner, assign 2 points; if it's a draw, assign 1 point.
+        Optional<Integer> winner = state.winner();
+        if (winner.isPresent()) {
+            this.wins = 2.0;
+        } else {
+            this.wins = 1.0;
         }
+    } else {
+        this.playouts = 0;
+        this.wins = 0.0;
     }
+}
 
     private final State<TicTacToe> state;
     private final ArrayList<Node<TicTacToe>> children;
-
-    private int wins;
-    private int playouts;
 }
