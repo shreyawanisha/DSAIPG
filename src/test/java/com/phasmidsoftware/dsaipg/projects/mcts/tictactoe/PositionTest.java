@@ -149,4 +149,88 @@ public class PositionTest {
         Position target = Position.parsePosition("X . .\n. O .\n. . X", 1);
         assertEquals("1,-1,-1\n-1,0,-1\n-1,-1,1", target.toString());
     }
+
+    @Test
+    public void testEquals() {
+        Position target = Position.parsePosition("X . .\n. O .\n. . X", 1);
+        Position target2 = Position.parsePosition("X . .\n. O .\n. . X", 1);
+        assertEquals(target, target2);
+    }
+
+    @Test
+    public void testHashCode() {
+        Position target = Position.parsePosition("X . .\n. O .\n. . X", 1);
+        Position target2 = Position.parsePosition("X . .\n. O .\n. . X", 1);
+        assertEquals(target.hashCode(), target2.hashCode());
+    }
+
+    @Test(expected = RuntimeException.class)
+    public void testMoveOccupiedCell() {
+        String grid = "X . .\n. O .\n. . X";
+        Position target = Position.parsePosition(grid, 1);
+        try {
+            target.move(0, 0, 0);
+            fail("Expected a RuntimeException for an occupied cell");
+        } catch (RuntimeException ex) {
+            assertEquals("Position is occupied: 0, 0", ex.getMessage());
+            throw ex;
+        }
+    }
+
+    @Test
+    public void testMoveImmutability() {
+        String grid = "X . .\n. O .\n. . X";
+        Position original = Position.parsePosition(grid, 1);
+        Position moved = original.move(0, 0, 1);
+
+        assertEquals(grid, original.render());
+        String expectedGrid = "X O .\n. O .\n. . X";
+        Position expected = Position.parsePosition(expectedGrid, 0);
+        assertEquals(expected, moved);
+    }
+
+    @Test
+    public void testReflectAxis0() {
+        String grid = "X . 0\n. O .\n. . X";
+        Position target = Position.parsePosition(grid, 1);
+        Position reflected = target.reflect(0);
+
+        String expected = ". . X\n. O .\nX . O";
+        assertEquals(expected, reflected.render());
+    }
+
+    @Test
+    public void testReflectAxis1() {
+        String grid = "X . 0\n. O .\n. . X";
+        Position target = Position.parsePosition(grid, 1);
+        Position reflected = target.reflect(1);
+
+        String expected = "O . X\n. O .\nX . .";
+        assertEquals(expected, reflected.render());
+    }
+
+    @Test(expected = RuntimeException.class)
+    public void testReflectInvalidAxis() {
+        String grid = "X . 0\n. O .\n. . X";
+        Position target = Position.parsePosition(grid, 1);
+        target.reflect(2); // Invalid axis
+    }
+
+    @Test
+    public void testRotates() {
+        String grid = "X . 0\n. O .\n. . X";
+        Position target = Position.parsePosition(grid, 1);
+        Position rotated = target.rotate();
+
+        String expected = "O . X\n. O .\nX . .";
+        assertEquals(expected, rotated.render());
+    }
+
+    @Test
+    public void testThreeInARowNoWin() {
+        String grid = "X . O\n. X .\nO . .";
+        Position target = Position.parsePosition(grid, 0);
+        assertFalse(target.threeInARow());
+    }
+
 }

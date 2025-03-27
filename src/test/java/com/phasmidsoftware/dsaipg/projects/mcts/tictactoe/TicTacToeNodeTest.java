@@ -12,7 +12,7 @@ public class TicTacToeNodeTest {
         TicTacToe.TicTacToeState state = new TicTacToe().new TicTacToeState(Position.parsePosition("X . 0\nX O .\nX . 0", TicTacToe.X));
         TicTacToeNode node = new TicTacToeNode(state);
         assertTrue(node.isLeaf());
-        assertEquals(2, node.wins());
+        assertEquals(2.0, node.wins(), 0.001); // Use delta for double comparison
         assertEquals(1, node.playouts());
     }
 
@@ -32,16 +32,27 @@ public class TicTacToeNodeTest {
 
     @Test
     public void children() {
+        TicTacToe.TicTacToeState state = new TicTacToe().new TicTacToeState();
+        TicTacToeNode node = new TicTacToeNode(state);
+        assertEquals(0, node.children().size());
         // no tests yet
     }
 
     @Test
     public void addChild() {
+        TicTacToe.TicTacToeState state = new TicTacToe().new TicTacToeState();
+        TicTacToeNode node = new TicTacToeNode(state);
+        node.addChild(state);
+        assertEquals(1, node.children().size());
         // no tests yet
     }
 
     @Test
     public void backPropagate() {
-        // no tests yet
+        TicTacToe.TicTacToeState state = new TicTacToe().new TicTacToeState();
+        TicTacToeNode node = new TicTacToeNode(state);
+        node.backPropagate(); // After backpropagation, no children → wins=0.0
+        assertEquals(0.0, node.wins(), 0.001); // Use delta
+        assertEquals(0, node.playouts());
     }
 }

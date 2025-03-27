@@ -58,4 +58,18 @@ public class PositionTest {
         String differentObject = "NotAPosition";
         assertNotEquals(position, differentObject);
     }
+
+    @Test
+    public void testEquals_DifferentObject() {
+        GeoConversions.Position position1 = new GeoConversions.Position(45.0, 90.0);
+        GeoConversions.Position position2 = new GeoConversions.Position(46.0, 91.0);
+        assertNotEquals(position1, position2);
+    }
+
+    @Test
+    public void testEquals_DifferentPosition() {
+        GeoConversions.Position position1 = new GeoConversions.Position(45.0, 90.0);
+        GeoConversions.Position position2 = new GeoConversions.Position(46.0, 90.0);
+        assertNotEquals(position1, position2);
+    }
 }
