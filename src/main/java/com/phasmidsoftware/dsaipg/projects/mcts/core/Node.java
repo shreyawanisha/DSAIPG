@@ -66,12 +66,20 @@ public interface Node<G extends Game> {
     /**
      * @return the score for this Node and its descendents a win is worth 2 points, a draw is worth 1 point.
      */
-    int wins();
+    double wins();
+
+    void setWins(double wins);
 
     /**
      * @return the number of playouts evaluated (including this node). A leaf node will have a playouts value of 1.
      */
     int playouts();
+
+    void setPlayouts(int playout);
+
+    // Add methods to handle parent node
+    Node<G> getParent();
+    void setParent(Node<G> parent);
 
     private void addChildren(final State<G> state) {
         for (Iterator<Move<G>> it = state.moveIterator(state.player()); it.hasNext(); )
