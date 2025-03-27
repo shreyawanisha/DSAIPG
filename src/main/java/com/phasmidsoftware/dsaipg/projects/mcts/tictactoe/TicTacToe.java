@@ -6,25 +6,14 @@ package com.phasmidsoftware.dsaipg.projects.mcts.tictactoe;
 
 import com.phasmidsoftware.dsaipg.projects.mcts.core.Game;
 import com.phasmidsoftware.dsaipg.projects.mcts.core.Move;
+import com.phasmidsoftware.dsaipg.projects.mcts.core.Node;
 import com.phasmidsoftware.dsaipg.projects.mcts.core.State;
-
 import java.util.*;
 
 /**
  * Class which models the game of TicTacToe.
  */
 public class TicTacToe implements Game<TicTacToe> {
-    /**
-     * Main program to run a random TicTacToe game.
-     *
-     * @param args command-line arguments.
-     */
-    public static void main(String[] args) {
-        // NOTE the behavior of the game to be run will be based on the TicTacToe instance field: random.
-        State<TicTacToe> state = new TicTacToe().runGame();
-        if (state.winner().isPresent()) System.out.println("TicTacToe: winner is: " + state.winner().get());
-        else System.out.println("TicTacToe: draw");
-    }
 
     public static final int X = 1;
     public static final int O = 0;
@@ -40,19 +29,40 @@ public class TicTacToe implements Game<TicTacToe> {
     }
 
     /**
-     * Run a TicTacToe game.
+     * Runs a full game of TicTacToe using the specified number of MCTS iterations per move.
      *
-     * @return the terminal State.
+     * @param mctsIterations the number of iterations of MCTS to run for each move.
+     * @return the terminal state of the game.
      */
-    State<TicTacToe> runGame() {
+    State<TicTacToe> runGame(int mctsIterations) {
         State<TicTacToe> state = start();
-        int player = opener();
         while (!state.isTerminal()) {
-            state = state.next(state.chooseMove(player));
-            player = 1 - player;
+            System.out.println(state);
+
+            // Initialize MCTS with the current state
+            Node<TicTacToe> currentNode = new TicTacToeNode(state);
+            MCTS mcts = new MCTS((TicTacToeNode) currentNode); // Instance-specific root
+            mcts.run(mctsIterations);
+
+            // Get the best move from THIS MCTS instance's root
+            Node<TicTacToe> bestMove = mcts.bestChild(currentNode);
+            if (bestMove == null) {
+                throw new IllegalStateException("MCTS did not return a move");
+            }
+            state = bestMove.state(); // Advance to the best move's state
         }
+        System.out.println(state);
         return state;
     }
+
+
+    /**
+     * Default runGame using a fixed number of iterations.
+     */
+    State<TicTacToe> runGame() {
+        return runGame(10000);
+    }
+
 
     /**
      * This method determines the opening player (the "white" by analogy with chess).
@@ -173,7 +183,7 @@ public class TicTacToe implements Game<TicTacToe> {
         /**
          * Method to determine if this State represents the end of the game?
          *
-         * @return an optional int if this State is a win/loss/draw.
+         * @return true if this State is a win/loss/draw.
          */
         public Optional<Integer> winner() {
             return position.winner();
@@ -227,9 +237,9 @@ public class TicTacToe implements Game<TicTacToe> {
 
         @Override
         public String toString() {
-            return "TicTacToe{\n" +
-                    position +
-                    "\n}";
+            return "TicTacToe\n" +
+                    position.render() +
+                    "\n";
         }
 
         public TicTacToeState(Position position) {
